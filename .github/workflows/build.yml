@@ -35,13 +35,14 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - name: build project
-        run: mvn clean install
+
 
   sonarqube:
     name: SonarQube Trigger
     runs-on: ubuntu-latest
     steps:
+    - name: build project
+      run: mvn clean install
     - name: Checking out
       uses: actions/checkout@master
       with:
