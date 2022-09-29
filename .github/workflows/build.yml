@@ -49,4 +49,5 @@ jobs:
       with:
         host: ${{ secrets.SONARQUBE_HOST }}
         login: ${{ secrets.SONARQUBE_TOKEN }}
-        projectKey: "my-custom-project"
+        args: >
+          -Dsonar.organization=xyz031702
