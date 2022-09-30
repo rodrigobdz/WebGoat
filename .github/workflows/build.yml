@@ -10,9 +10,9 @@ env:
 on:
   # Triggers the workflow on push or pull request events but only for the "develop" branch
   push:
-    branches: [ "develop", "main" ]
+    branches: ['develop', 'main']
   pull_request:
-    branches: [ "develop", "main" ]
+    branches: ['develop', 'main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -38,19 +38,18 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
+
       - name: build project
         run: mvn clean install
 
       - name: SCA scan
-        run: | 
-           echo trigger SCA Scan
-           curl -s https://download.scantist.io/scantist-bom-detect.jar --output scantist-bom-detect.jar 
-           java -jar scantist-bom-detect.jar
+        run: |
+          echo trigger SCA Scan
+          curl -s https://download.scantist.io/scantist-bom-detect.jar --output scantist-bom-detect.jar
+          java -jar scantist-bom-detect.jar
 
       - name: SonarQube Scan
         uses: kitabisa/sonarqube-action@v1.2.0
         with:
           host: ${{ secrets.SONARQUBE_HOST }}
           login: ${{ secrets.SONARQUBE_TOKEN }}
-          
