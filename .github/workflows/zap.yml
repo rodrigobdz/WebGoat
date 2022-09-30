@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: OWASP ZAP Full Scan
-      uses: zaproxy/action-full-scan@v0.1.0
+      uses: zaproxy/action-full-scan@v0.4.0
       with:
         target: "http://94.74.86.164:8888/WebGoat/login"
           
